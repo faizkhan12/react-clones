@@ -1,6 +1,7 @@
 import React from "react"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+
 const Banner = () => {
   return (
     <div className='relative'>
@@ -26,6 +27,20 @@ const Banner = () => {
         <div>
           {" "}
           <img loading='lazy' src='https://links.papareact.com/7ma' />
+        </div>
+        <div>
+          {" "}
+          <img
+            loading='lazy'
+            src='https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_TallHero_Gamers_en_US_2x._CB667161802_.jpg'
+          />
+        </div>
+        <div>
+          {" "}
+          <img
+            loading='lazy'
+            src='https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Computers_2x._CB432469748_.jpg'
+          />
         </div>
       </Carousel>
     </div>
