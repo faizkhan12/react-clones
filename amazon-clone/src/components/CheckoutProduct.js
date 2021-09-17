@@ -3,6 +3,8 @@ import Image from "next/image"
 import React, { useState } from "react"
 import Currency from "react-currency-formatter"
 import { useDispatch } from "react-redux"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import { addToBasket, removeFromBasket } from "../slices/basketSlice"
 
 const CheckoutProduct = ({
@@ -22,6 +24,11 @@ const CheckoutProduct = ({
   )
   const dispatch = useDispatch()
 
+  const notify = () =>
+    toast("Item added in cart", {
+      autoClose: 2000,
+    })
+
   const addMoreItem = () => {
     const product = {
       id,
@@ -33,6 +40,7 @@ const CheckoutProduct = ({
       hasPrime,
     }
     dispatch(addToBasket(product))
+    notify()
   }
 
   const removeItem = () => {
@@ -69,6 +77,8 @@ const CheckoutProduct = ({
         <button onClick={addMoreItem} className='button'>
           Add more item
         </button>
+        <ToastContainer />
+
         <button onClick={removeItem} className='button'>
           Remove from Cart
         </button>

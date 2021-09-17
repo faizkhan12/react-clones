@@ -3,6 +3,8 @@ import Image from "next/image"
 import React, { useState } from "react"
 import Currency from "react-currency-formatter"
 import { useDispatch } from "react-redux"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import { addToBasket } from "../slices/basketSlice"
 
 const Product = ({ id, title, price, description, category, image }) => {
@@ -17,6 +19,11 @@ const Product = ({ id, title, price, description, category, image }) => {
 
   const [hasPrime] = useState(Math.random() < 0.5)
 
+  const notify = () =>
+    toast("Item added in cart", {
+      autoClose: 2000,
+    })
+
   const addItemToCart = () => {
     const product = {
       id,
@@ -28,6 +35,7 @@ const Product = ({ id, title, price, description, category, image }) => {
       hasPrime,
     }
     dispatch(addToBasket(product))
+    notify()
   }
 
   return (
@@ -57,6 +65,7 @@ const Product = ({ id, title, price, description, category, image }) => {
       <button onClick={addItemToCart} className=' mt-auto button'>
         Add to Cart
       </button>
+      <ToastContainer />
     </div>
   )
 }

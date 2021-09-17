@@ -1,3 +1,4 @@
+import { getSession } from "next-auth/client"
 import Head from "next/head"
 import Banner from "../components/Banner"
 import Header from "../components/Header"
@@ -20,6 +21,7 @@ export default function Home({ products }) {
 
 // making asyncronous call from next js server and returning it to component
 export async function getServerSideProps(context) {
+  const session = await getSession(context)
   const result = await fetch("https://fakestoreapi.com/products")
   const products = await result.json()
 
@@ -27,6 +29,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       products: products,
+      session,
     },
   }
 }
