@@ -18,6 +18,8 @@ React / Next Js clones of the some of the famous websites like Amazon, youtube, 
 
 ├── discord-clone
 
+├── google-clone
+
 ## Technologies Used
 
 ```
@@ -31,7 +33,7 @@ Clones were mainly built wuth React Js or Next Js Technologies. Some of the Comm
 
 ## Setup
 
-Setup is for either react or next js
+Setup is same for either react or next js
 
 ```
  npm install - to install the dependencies
