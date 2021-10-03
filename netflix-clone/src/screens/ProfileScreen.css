@@ -1,0 +1,99 @@
+.profile__screen {
+  flex-direction: column;
+  color: white;
+  height: 100vh;
+  background: #000;
+}
+
+.profile__screen__body {
+  /* display: flex;
+  flex-direction: column; */
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 2%; */
+  max-width: 800px;
+}
+
+.profile__screen__body > h1 {
+  font-size: 60px;
+  font-weight: 400;
+  border-bottom: 1px solid #282c2d;
+  margin-bottom: 20px;
+}
+
+.profile__screen__info {
+  display: flex;
+}
+.profile__screen__info > img {
+  height: 100px;
+}
+
+.profile__screen__details {
+  color: white;
+  margin-left: 25px;
+  flex: 1;
+}
+
+.profile__screen__details > h2 {
+  background-color: gray;
+  padding: 15px;
+  font-size: 15px;
+  padding-left: 20px;
+}
+
+.profile__screen_signout {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-top: 5%;
+  width: 100%;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.profile__screen_signout:hover {
+  opacity: 0.5;
+}
+
+.profile__screen__plans {
+  margin-top: 20px;
+}
+
+.profile__screen__plans > h3 {
+  border-bottom: 1px solid #282c2d;
+  padding-bottom: 10px;
+}
+
+.profile__screen__plans > h4 {
+  padding-top: 20px;
+}
+
+.profile__screen__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.profile__screen__row > button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  /* width: 100%; */
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.profile__screen__row > h5:hover {
+  color: gray;
+  font-size: 1rem;
+}
+
+.profile__screen__row > button:hover {
+  opacity: 0.5;
+}
