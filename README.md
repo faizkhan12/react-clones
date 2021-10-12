@@ -12,13 +12,15 @@ React / Next Js clones of the some of the famous websites like Amazon, youtube, 
 
 ## Directory
 
-├── amazon-clone
+    ├── amazon-clone
 
-├── catalogue
+    ├── catalogue
 
-├── discord-clone
+    ├── discord-clone
 
-├── google-clone
+    ├── google-clone
+
+    ├── netflix-clone
 
 ## Technologies Used
 
