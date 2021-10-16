@@ -12,11 +12,14 @@ import {
   UserGroupIcon,
   ViewGridIcon,
 } from "@heroicons/react/solid"
+import { signOut, useSession } from "next-auth/client"
 import Image from "next/image"
 import React from "react"
 import HeaderIcon from "./HeaderIcon"
 
 const Header = () => {
+  const [session] = useSession()
+
   return (
     <div className='flex items-center sticky top-0 z-50 bg-white p-2 lg:px-5 shadow-md'>
       <div className='flex items-center'>
@@ -49,8 +52,18 @@ const Header = () => {
       </div>
       {/* right */}
       <div className='flex items-center sm:space-x-2 justify-end'>
-        {/* TODO: Profile pic */}
-        <p className='pr-3 font-semibold whitespace-nowrap'>Faiz Khan</p>
+        <Image
+          className='rounded-full cursor-pointer'
+          src={session?.user?.image}
+          width='20'
+          height='20'
+          layout='fixed'
+          loading={"lazy"}
+          onClick={signOut}
+        />
+        <p className='pr-3 font-semibold whitespace-nowrap'>
+          {session?.user?.name}
+        </p>
         <ViewGridIcon className='icon' />
         <ChatIcon className='icon' />
         <BellIcon className='icon' />

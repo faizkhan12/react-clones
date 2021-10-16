@@ -16,7 +16,7 @@ const Login = () => {
         onClick={signIn}
         className='p-5 bg-blue-500 rounded-full my-20 cursor-pointer'
       >
-        Login With Facebbok
+        Login With Google
       </h1>
     </div>
   )
