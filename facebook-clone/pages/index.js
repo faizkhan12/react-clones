@@ -2,9 +2,11 @@ import { getSession } from "next-auth/client"
 import Head from "next/head"
 import Feed from "../components/body/feeds/Feed"
 import SideBar from "../components/body/sidebar/SideBar"
+import Widgets from "../components/body/widgets/Widgets"
 import Header from "../components/header/Header"
 import Login from "../components/Login"
-export default function Home({ session }) {
+import { db } from "../firebase"
+export default function Home({ session, posts }) {
   if (!session) return <Login />
 
   return (
@@ -20,8 +22,9 @@ export default function Home({ session }) {
         {/* sidebar */}
         <SideBar />
         {/* Feed */}
-        <Feed />
+        <Feed posts={posts} />
         {/* widgets */}
+        <Widgets />
       </main>
     </div>
   )
@@ -30,9 +33,18 @@ export default function Home({ session }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context)
 
+  const posts = await db.collection("posts").orderBy("timestamp", "desc").get()
+
+  const docs = posts.docs.map((post) => ({
+    id: post.id,
+    ...post.data(),
+    timestamp: null,
+  }))
+
   return {
     props: {
       session,
+      posts: docs,
     },
   }
 }
