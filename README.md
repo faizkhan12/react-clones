@@ -22,15 +22,21 @@ React / Next Js clones of the some of the famous websites like Amazon, youtube, 
 
     ├── netflix-clone
 
+    ├── facebook-clone
+
 ## Technologies Used
 
 ```
 Clones were mainly built wuth React Js or Next Js Technologies. Some of the Common one in each projects are :
-- React / Nect JS
-- Firebase for Google Authentication and Storage
+- React / Next JS
+- Redux for state management
+- Firebase for  Authentication and Storage
 - Tailwind CSS
 - Tailwind Material
+- Hero Icons
+- Material-UI Icons
 - CSS
+- Styled Components
 ```
 
 ## Setup
@@ -39,7 +45,8 @@ Setup is same for either react or next js
 
 ```
  npm install - to install the dependencies
- npm run start - to run the application
+ npm run start - to run the react js application
+ npm run dev - to run the next js application
 ```
 
 ## Project Status
