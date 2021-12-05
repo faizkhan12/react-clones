@@ -24,6 +24,10 @@ React / Next Js clones of the some of the famous websites like Amazon, youtube, 
 
     ├── facebook-clone
 
+    ├── slack-clone
+
+    ├── spotify-clone
+
 ## Technologies Used
 
 ```
