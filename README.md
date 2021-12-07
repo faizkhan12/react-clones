@@ -1,6 +1,6 @@
 # Clones
 
-React / Next Js clones of the some of the famous websites like Amazon, youtube, Spotify, etc
+React / Next JS clones of the some of the famous websites like Amazon, youtube, Spotify, etc
 
 ## Table of Contents
 
