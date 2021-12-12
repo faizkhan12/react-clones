@@ -59,7 +59,6 @@ All the pushed repositories are completed.
 Some of the clones which are in progress are:
 
 - Youtube Clone
-- Spotify Clone
 - Instagram Clone
 
 ## Contact
