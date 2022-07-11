@@ -8,6 +8,7 @@ import { BigNumber } from 'ethers'
 import type { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import { sanityClient, urlFor } from '../../sanity'
 import { Collection } from '../../type'
 
@@ -53,8 +54,58 @@ const NFTDropPage = ({ collection }: Props) => {
     fetchPrice()
   })
 
+  const mintNft = () => {
+    if (!nftDrop || !address) return
+
+    setLoading(true)
+    const notification = toast.loading('Minting...', {
+      style: {
+        background: 'white',
+        color: 'green',
+        fontWeight: 'bolder',
+        fontSize: '17px',
+        padding: '20px',
+      },
+    })
+    nftDrop
+      ?.claimTo(address, 1)
+      .then(async (tx) => {
+        const receipt = tx[0].receipt
+        const claimedTokenId = tx[0].id
+        const claimedNFT = await tx[0].data()
+
+        toast('HOORAY....You have successfully minted', {
+          duration: 6000,
+          style: {
+            background: 'white',
+            color: 'green',
+            fontWeight: 'bolder',
+            fontSize: '17px',
+            padding: '20px',
+          },
+        })
+      })
+      .catch((err) => {
+        toast('WHOOPS...Something went wrong', {
+          style: {
+            background: 'red',
+            color: 'white',
+            fontWeight: 'bolder',
+            fontSize: '17px',
+            padding: '20px',
+          },
+        })
+      })
+      .finally(() => {
+        setLoading(false)
+        toast.dismiss(notification)
+      })
+  }
+
   return (
     <div className="flex h-screen  flex-col lg:grid lg:grid-cols-10">
+      <Toaster position="bottom-left" />
+
       {/* left side */}
       <div className="bg-gradient-to-br from-cyan-800 to-rose-500 lg:col-span-4">
         <div className="flex flex-col items-center justify-center py-2 lg:min-h-screen">
@@ -132,6 +183,7 @@ const NFTDropPage = ({ collection }: Props) => {
         </div>
         {/* Mint Button */}
         <button
+          onClick={mintNft}
           disabled={
             loading || claimedSupply === totalSupply?.toNumber() || !address
           }
