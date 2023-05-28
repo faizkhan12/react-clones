@@ -64,7 +64,3 @@ Some of the clones which are in progress are:
 ## Contact
 
 created by [@faizkhan](https://www.faizkhan.xyz/)
-
-# nft-drop
-
-A NFT drop collection where user can mint. Uses technologies like thirdweb and metamask to connect to web3.
